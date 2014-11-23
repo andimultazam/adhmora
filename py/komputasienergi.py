@@ -5,38 +5,37 @@
 
 #define function
 def HitungEnergi(x,y):
-    """This function calculate energy consumption"""
-    """Energy in KWh"""
-    """the function for per minnute calculation"""
+    """this is for per minnute calculation"""
+    """x = Daya (W); y = t (hour)"""
 
     return (x*y)/(1000*60)
 
 def HitungDayaAktif(x,y,z):
     """Power for each phase Pp = Vp*Ip*pf"""
-    """Vp = V_LN"""
-    """Ip = I_1"""
-
+    """x = Vp = V_LN; y = Ip = I_1"""
+    
     return x*y*z
 
 def HitungDayaReaktif(x,y,z):
-    """Power for each phase Pp = Vp*Ip*pf"""
-    """sin tetha = sqrt(1-cos tetha^2)"""
+    """Power for each phase Qp = Vp*Ip*sin tetha"""
+    """x = Vp = V_LN; y = Ip = I_1"""
 
     return x*y*(sqrt(1-z^2));
 
 def AbodemenListrik(x,y):
-    """biaya Rp/kVA R1 = Rp. 30.200,-"""
+    """y = Rp/kVA_R1 = Rp. 30.200,-"""
+    """x = R1 = 2200 VA (misal)"""
 
     return x*y/1000
     
-def HitungTagihan(p,w,x,y,z):
-    """Harga tagihan tahun 2014 : Rp 575/KWh"""
-    """20KWh pertama = Rp. 395"""
-    """20KWh kedua = Rp. 445"""
-    """Per KWh berikutnya = Rp. 495"""
+def HitungTagihan(w,x,y,z):
+    """x = 20KWh pertama = Rp. 395"""
+    """y = 20KWh kedua = Rp. 445"""
+    """z = Per KWh berikutnya = Rp. 495"""
+    """w = DayaAktif; p = pajak"""
 
     if w < 20:
-        return ((100+p)/100)*(w*x + 0.03*w*x + AbodemenListrik(a,b))
+        return ((100+p)/100)*(w*x + w*x + AbodemenListrik(a,b))
     elif 20 < w < 60:
         return ((100+p)/100)*(w*x + w*y + AbodemenListrik(a,b))
     else
@@ -44,6 +43,7 @@ def HitungTagihan(p,w,x,y,z):
 
 def HitungIKE(x,y):
     """Indeks standar diisi manual oleh admin"""
+    """x = Energi (KWh); y = luas lantai (m^2)"""
 
     return x / y
 
