@@ -1,0 +1,46 @@
+
+body{
+    background: rgb(243,243,243);
+}
+
+#tile1{
+    margin: 10px;
+}
+
+.height-tile{ /* height tile pendek*/
+    height: 200px;
+}
+
+.height-tile2{ /* height tile tinggi*/
+    height: 410px;
+}
+
+.height-tile3{ /* height tile pendek*/
+    height: 250px;
+}
+
+.split{
+    border-style: dashed;
+    border-left: 1px;
+    border-top: 1px;
+    border-bottom: 1px;
+}
+
+.color-logo{
+    background-color: #353D37;
+    color: white;
+}
+
+.white-back{
+    background-color: white;
+}
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.right-align{
+    text-align: right
+}
+
