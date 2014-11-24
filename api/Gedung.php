@@ -6,8 +6,18 @@ class Gedung {
     public function getAll(){
 		$db = new PdoWrapper();
 
-    	$sql = 'select * from gedung where 1';
+    	$sql = 'select g.*,f.nama as fungsi_nama from gedung g inner join fungsi f where f.idfungsi=g.fungsi';
     	$data = $db->pdoQuery($sql)->results();
+    	return json_encode($data[0]);
+    }
+
+    public function getId($id){
+		$db = new PdoWrapper();
+
+    	//$sql = 'select * from gedung where idgedung='.$id;
+    	$sql = "select g.*,f.nama as fungsi_nama from gedung g inner join fungsi f where g.idgedung=$id and f.idfungsi=g.fungsi";
+    	$data = $db->pdoQuery($sql)->results();
+    	//var_dump($data);
     	return json_encode($data[0]);
     }
 

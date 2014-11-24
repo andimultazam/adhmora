@@ -17,52 +17,53 @@
   <body>
     <section class="container-fluid">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12" ng-app="adminApp">
         <form class="form-horizontal" role="form">
           <fieldset>
             <!-- Form Name -->
             <legend><h1>Tambah klien</h1></legend>
               <!-- Text input-->
-              <div class="form-group">
-                <label class="col-sm-2 control-label" for="textinput">Klien</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control">
+              <div ng-controller="klienCtrl">
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="textinput">Klien</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="gedung.klien">
+                  </div>
                 </div>
-              </div>
 
-              <!-- Text input-->
-              <div class="form-group">
-                <label class="col-sm-2 control-label" for="textinput">Logo</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control">
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="textinput">Logo</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="gedung.logo">
+                  </div>
                 </div>
-              </div>
 
-              <!-- Text input-->
-              <div class="form-group">
-                <label class="col-sm-2 control-label" for="textinput">Nama Bangunan</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control">
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="textinput">Nama Bangunan</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="gedung.nama">
+                  </div>
                 </div>
-              </div>
-              
-              <!-- Text input-->
-              <div class="form-group">
-                <label class="col-sm-2 control-label" for="textinput">Fungsi Bangunan</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control">
+                
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="textinput">Fungsi Bangunan</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="gedung.fungsi">
+                  </div>
                 </div>
-              </div>
 
-               <div class="form-group">
-                <label class="col-sm-2 control-label" for="textinput">Batas Daya</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control">
+                 <div class="form-group">
+                  <label class="col-sm-2 control-label" for="textinput">Batas Daya</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="gedung.daya">
+                  </div>
                 </div>
+
+                <button type="submit" class="btn btn-success">Save</button>
               </div>
-
-              <button type="submit" class="btn btn-success">Save</button>
-
             <!--oooooooo part fungsi lantai ooooooo-->
             <!-- Text input-->
               <div class="form-group">
@@ -188,5 +189,35 @@
     <script src="js/jquery-2.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/utility.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-sanitize.js"></script>
+    <script>
+      var adminApp = angular.module('adminApp', ["ngSanitize"]);
+      adminApp.controller('klienCtrl', ['$scope','$http', function ($scope,$http) {
+        $scope.gedung = {};
+        $http({
+          url: domainname+"gedung/id/"+getValue('id'), 
+          method: "GET",
+          params: {}
+         }).
+          success(function(data, status, headers, config) {
+            var resp = JSON.parse(JSON.parse(data));
+            if (resp !== null){
+              //console.log(resp);
+              $scope.gedung.klien = resp.klien;
+              $scope.gedung.logo = resp.logo;
+              $scope.gedung.nama = resp.nama;
+              $scope.gedung.fungsi = resp.fungsi_nama;
+              $scope.gedung.daya = resp.daya;
+            }
+          }).
+          error(function(data, status, headers, config) {
+          // called asynchronously if an error occurs
+          // or server returns response with an error status.
+          console.log("error get gedung");
+        });
+      }]);
+    </script>
   </body>
 </html>
