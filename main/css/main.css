@@ -3,7 +3,13 @@ body{
     background: rgb(243,243,243);
 }
 
-#tile1{
+
+img{
+    max-width: 80%;
+    max-height: 80%;
+}
+
+#tile1{ /* margin 10 px antara tile*/
     margin: 10px;
 }
 
@@ -35,12 +41,36 @@ body{
     background-color: white;
 }
 
-img{
-    max-width: 100%;
-    max-height: 100%;
+.grey-back{
+    background-color: #AAACAC;
+}
+
+.green-back{
+    background-color: #6AD35E;
+    color: white;
+    height: 100%;
+}
+
+.green-font{
+    color: #6AD35E;
+}
+
+.center-align{
+    text-align: center;
 }
 
 .right-align{
-    text-align: right
+    text-align: right;
 }
 
+.left-align{
+    text-align: left;
+}
+
+.margin30{
+    margin-top: 30px;
+}
+
+.padding10{
+    padding: 10px;
+}
