@@ -4,31 +4,31 @@
 # 3. IKE (Indeks Konsumsi Energi)
 
 #define function
-def HitungEnergi(x,y):
+def HitungEnergi(w,t):
     """this is for per minnute calculation"""
-    """x = Daya (W); y = t (hour)"""
+    """Daya (W); t (hour)"""
 
-    return (x*y)/(1000*60)
+    return (w*t)/(1000*60)
 
-def HitungDayaAktif(x,y,z):
+def HitungDayaAktif(v,i,pf):
     """Power for each phase Pp = Vp*Ip*pf"""
     """x = Vp = V_LN; y = Ip = I_1"""
     
-    return x*y*z
+    return v*i*pf
 
-def HitungDayaReaktif(x,y,z):
+def HitungDayaReaktif(v,i,pf):
     """Power for each phase Qp = Vp*Ip*sin tetha"""
     """x = Vp = V_LN; y = Ip = I_1"""
 
-    return x*y*(sqrt(1-z^2));
+    return v*i*(sqrt(1-pf^2));
 
-def AbodemenListrik(x,y):
+def AbodemenListrik(r1,rp):
     """y = Rp/kVA_R1 = Rp. 30.200,-"""
     """x = R1 = 2200 VA (misal)"""
 
-    return x*y/1000
+    return r1*rp/1000
     
-def HitungTagihan(w,x,y,z):
+def HitungTagihan(w,x,y,z,p):
     """x = 20KWh pertama = Rp. 395"""
     """y = 20KWh kedua = Rp. 445"""
     """z = Per KWh berikutnya = Rp. 495"""

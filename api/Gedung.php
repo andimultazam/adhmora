@@ -6,7 +6,7 @@ class Gedung {
     public function getAll(){
 		$db = new PdoWrapper();
 
-    	$sql = 'select g.*,f.nama as fungsi_nama from gedung g inner join fungsi f where f.idfungsi=g.fungsi';
+    	$sql = 'select g.*,f.nama as fungsi_nama from gedung g inner join fungsi f on f.idfungsi=g.fungsi where 1';
     	$data = $db->pdoQuery($sql)->results();
     	return json_encode($data[0]);
     }
@@ -15,7 +15,7 @@ class Gedung {
 		$db = new PdoWrapper();
 
     	//$sql = 'select * from gedung where idgedung='.$id;
-    	$sql = "select g.*,f.nama as fungsi_nama from gedung g inner join fungsi f where g.idgedung=$id and f.idfungsi=g.fungsi";
+    	$sql = "select g.*,f.nama as fungsi_nama from gedung g inner join fungsi f on f.idfungsi=g.fungsi where g.idgedung=$id";
     	$data = $db->pdoQuery($sql)->results();
     	//var_dump($data);
     	return json_encode($data[0]);

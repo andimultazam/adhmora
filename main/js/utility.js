@@ -23,3 +23,17 @@ function getValue(varname) {
     value = value.replace(/\+/g," ");
     return value;
 }
+
+function toObject(arr) {
+  var rv = {};
+  for (var i = 0; i < arr.length; ++i)
+    rv[i] = arr[i];
+  return rv;
+}
+
+function getCurTime(){
+  var dt = new Date();
+  dt = twoDigits(dt.getHours()) + ":" + twoDigits(dt.getMinutes()) + ":" + twoDigits(dt.getSeconds());
+  console.log(dt);
+  return dt;
+}

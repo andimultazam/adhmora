@@ -194,6 +194,7 @@
     <script src="js/angular-sanitize.js"></script>
     <script>
       var adminApp = angular.module('adminApp', ["ngSanitize"]);
+      //klien control
       adminApp.controller('klienCtrl', ['$scope','$http', function ($scope,$http) {
         $scope.gedung = {};
         $http({

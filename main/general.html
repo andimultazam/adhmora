@@ -16,47 +16,52 @@
     <![endif]-->
   </head>
   <body>
-  <section class="container">
+  <section class="container" ng-app="generalApp">
   
     <!--ooooooo status keseluruhan  ooooooooo-->
-      <div class="row">
+      <div class="row" ng-controller="klienCtrl">
         <div class="col-md-4">
          <div class="row height-tile color-logo" id="tile1">
           <div class="row">
-              <div class="col-md-4">logo</div>
+              <div class="col-md-4"><img ng-src="{{gedung.logo}}" /></div>
               <div class="col-md-4">
-                <div class="row">Nama Bangunan</div>
-                <div class="row">Fungsi Bangunan</div>
-                <div class="row">Luas Bangunan</div>
+                <div class="row">{{gedung.nama}}</div>
+                <div class="row">{{gedung.fungsi}}</div>
+                <div class="row">{{gedung.luas}}</div>
               </div>
           </div>
           <div class="row">
               <div class="col-md-4">Batas Daya</div>
-              <div class="col-md-4">1300</div>
+              <div class="col-md-4">{{gedung.daya}}</div>
           </div>
          </div>
-          <div class="row height-tile white-back" id="tile1">
+          <!--div class="row height-tile white-back" id="tile1">
           <p>lantai 1</p>
             <div class="col-md-4 split"><img src="img/smiley.png"></div>
               <div class="col-md-4">
                 <div class="row">konsumsi listrik dibawah<br> nilai IKE</div>
               </div>
-          </div>
+          </div-->
         </div>
 
         <div class="col-md-7">
           <div id="tile1" class="row height-tile2 white-back">
             <div class="col-md-6">
             <p>semua</p>
-            <h1>SEMUA</h1>
+            <h1>{{gedung.ike_status}}</h1>
             <p><img src="img/smiley.png"></p>
-            <p>konsumsi listrik dibawah nilai IKE</p>
+            <p>konsumsi listrik dibawah/diatas nilai IKE</p>
           </div>
            <div class="col-md-6">
-            <p>semua</p>
-            <h1>SEMUA</h1>
-            <p><img src="img/smiley.png"></p>
-            <p>konsumsi listrik dibawah nilai IKE</p>
+            <div id="tile1" class="white-back height-tile3">
+            <p>gedung {{gedung.nama}}</p>
+            <p>tagihan sejauh ini</p>
+            <p class="right-align">{{gedung.tagihan_sampai}}</p>
+            <p>perkiraan tagihan bulan ini</p>
+            <p class="right-align">{{gedung.tagihan_bulan}}</p>
+            <p>dibawah/diatas ike</p>
+            <p class="right-align">{{gedung.tagihan_selisihike}}</p>
+         </div>
           </div>
         </div>
      </div>
@@ -77,7 +82,6 @@
             <p class="right-align">100.000</p>
          </div>
         </div>
-
        <div class="col-md-4">
          <div id="tile1" class="white-back height-tile3">
             <p>lantai 1</p>
@@ -88,41 +92,40 @@
          </div>
         </div>
       </div>
-
     <!--ooooooo status lantai satu ooooooooo-->
-
-    <!--ooooooo status lantai dua ooooooooo-->
-      <div class="row ">
-        <div class="col-md-4">
-         <div id="tile1" class="white-back height-tile3">
-            <p>lantai 2</p>
-            <p>tagihan sejauh ini</p>
-            <p class="right-align">100.000</p>
-            <p>tagihan sejauh ini</p>
-            <p class="right-align">100.000</p>
-            <p>tagihan sejauh ini</p>
-            <p class="right-align">100.000</p>
-         </div>
-        </div>
-
-       <div class="col-md-4">
-         <div id="tile1" class="white-back height-tile3">
-            <p>lantai 2</p>
-            <div class="col-md-4 split"><img src="img/smiley.png"></div>
-              <div class="col-md-4">
-                <div class="row">konsumsi listrik dibawah<br> nilai IKE</div>
-              </div>
-         </div>
-        </div>
-      </div>
-
-    <!--ooooooo status lantai dua  ooooooooo-->
-
-
   </section>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery-2.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/utility.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-sanitize.js"></script>
+    <script>
+      var generalApp = angular.module('generalApp', ["ngSanitize"]);
+      //klien control
+      generalApp.controller('klienCtrl', ['$scope','$http', function ($scope,$http) {
+        $scope.gedung = {};
+        //info
+        $http({
+          url: domainname+"gedung/id/"+getValue('id'), 
+          method: "GET",
+          params: {}
+         }).
+          success(function(data, status, headers, config) {
+            var resp = JSON.parse(JSON.parse(data));
+            if (resp !== null){
+              //console.log(resp);
+              $scope.gedung.klien = resp.klien;
+              $scope.gedung.logo = resp.logo;
+              $scope.gedung.nama = resp.nama;
+              $scope.gedung.fungsi = resp.fungsi_nama;
+              $scope.gedung.daya = resp.daya;
+            }
+          }).
+          error(function(data, status, headers, config) {console.log("error get gedung");});
+      }]);
+      //ike+tagihan
+    </script>
   </body>
 </html>
