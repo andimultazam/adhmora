@@ -28,13 +28,13 @@
       </ol> <!-- navbar ends -->
 
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12" ng-app="adminApp">
         <form class="form-horizontal" role="form">
           <fieldset>
             <!-- Form Name -->
             <legend><h1>Tambah klien</h1></legend>
               <!-- Text input-->
-              <div class="form-group">
+              <div class="form-group" ng-controller="klienCtrl">
                 <label class="col-sm-2 control-label" for="textinput">Klien</label>
                 <div class="col-sm-4 col-sm-offset-3">
                   <input type="text" class="form-control">
@@ -45,7 +45,7 @@
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="textinput">Logo</label>
                 <div class="col-sm-4 col-sm-offset-3">
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" ng-model="gedung.logo">
                 </div>
               </div>
 
@@ -53,7 +53,7 @@
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="textinput">Nama Bangunan</label>
                 <div class="col-sm-4 col-sm-offset-3">
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" ng-model="gedung.nama">
                 </div>
               </div>
               
@@ -61,7 +61,7 @@
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="fungsi-bangunan">Fungsi Bangunan</label>
                 <div class="col-sm-4 col-sm-offset-3">
-                  <select class="form-control" id="status" name="fungsi-bangunan">
+                  <select class="form-control" id="status" name="fungsi-bangunan" ng-model="gedung.fungsi">
                                 <option>PILIH</option>
                                 <option>fungsi A</option>
                                 <option>fungsi B</option>
@@ -73,10 +73,12 @@
                <div class="form-group">
                 <label class="col-sm-2 control-label" for="textinput">Batas Daya</label>
                 <div class="col-sm-4 col-sm-offset-3">
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" ng-model="gedung.daya">
                 </div>
               </div>
 
+                <button type="submit" class="btn btn-success">Save</button>
+              </div>
             <!--oooooooo part fungsi lantai ooooooo-->
             <!-- Text input-->
               <div class="form-group margin30">
@@ -236,7 +238,6 @@
     <script src="js/jquery-2.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-<<<<<<< HEAD
     <script src="js/utility.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/angular-sanitize.js"></script>
@@ -268,7 +269,5 @@
         });
       }]);
     </script>
-=======
->>>>>>> d315a979379a206b3c33b779b810ad061ca4a0d8
   </body>
 </html>
