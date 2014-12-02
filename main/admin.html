@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Adhmora</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <section class="container">
+    <div class="row">
+      <div class="col-md-12" ng-app="adminApp">
+        <div ng-controller="klienCtrl">
+          <form class="form-horizontal" role="form" name="klienForm" ng-upload="uploadComplete(content)" action="{{gedung.url}}" upload-options-convert-hidden="true">
+            <fieldset>
+              <!-- Form Name -->
+              <legend><h1>Tambah klien</h1></legend>
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="textinput">Klien</label>
+                  <div class="col-sm-4 col-sm-offset-3">
+                    <input type="text" class="form-control" name="klien" ng-model="gedung.klien">
+                  </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="textinput">Logo</label>
+                  <div class="col-sm-4 col-sm-offset-3">
+                    <img ng-src="{{gedung.logo}}" ng-show="gedung.logo" />
+                    <input type="file" name="logo" accept="image/*" ng-model="gedung.logo" />
+                  </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="textinput">Nama Bangunan</label>
+                  <div class="col-sm-4 col-sm-offset-3">
+                    <input type="text" class="form-control" ng-model="gedung.nama" name="nama">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="textinput">Luas Bangunan</label>
+                  <div class="col-sm-4 col-sm-offset-3">
+                    <input type="text" class="form-control" ng-model="gedung.luas" name="luas">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="textinput">Alamat</label>
+                  <div class="col-sm-4 col-sm-offset-3">
+                    <textarea ng-model="gedung.alamat" name="alamat"></textarea>
+                  </div>
+                </div>
+                
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="fungsi-bangunan">Fungsi Bangunan</label>
+                  <div class="col-sm-4 col-sm-offset-3">
+                    <select ng-model="gedung.fungsi" ng-options="fungsi.idfungsi as fungsi.nama for fungsi in getfungsi" name="fungsi"></select>
+                    <input type="hidden" name="fungsi_val" ng-model="gedung.fungsi" />
+                  </div>
+                </div>
+
+                 <div class="form-group">
+                  <label class="col-sm-2 control-label" for="textinput">Daya Terpasang</label>
+                  <div class="col-sm-4 col-sm-offset-3">
+                    <input type="text" class="form-control" ng-model="gedung.daya" name="daya">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="textinput">Baseline</label>
+                  <div class="col-sm-4 col-sm-offset-3">
+                    <input type="text" class="form-control" ng-model="gedung.baseline" name="baseline">
+                  </div>
+                </div>
+
+              <div class="form-group margin30">
+              <div class="alert alert-success" role="alert" ng-show="gedung.success">Data berhasil disimpan</div>
+              <div class="alert alert-warning" role="alert" ng-show="gedung.fail">Data gagal disimpan</div>
+                <div class="col-sm-4 col-sm-offset-5">
+                  <div class="pull-right">
+                    <button type="submit" class="btn btn-success" upload-submit="">Save</button>
+                  </div>
+                </div>
+              </div>
+
+            </fieldset>
+          </form>
+        </div>
+      </div><!-- /.col-lg-12 -->
+  </div><!-- /.row -->
+  </section>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/utility.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/ng-upload.js"></script>
+    <script src="js/angular-sanitize.js"></script>
+    <script>
+      var adminApp = angular.module('adminApp', ["ngSanitize",'ngUpload']);
+      //klien controller
+      adminApp.controller('klienCtrl', ['$scope','$http', function ($scope,$http) {
+        $scope.gedung = {};
+        $scope.getfungsi = {};
+        $scope.gedung.url = domainname+"gedung/edit/"+getValue('id');
+        //fungsi get list fungsi gedung
+        $http({
+          url: domainname+"fungsi/gedung", 
+          method: "GET",
+          params: {}
+         }).
+          success(function(data, status, headers, config) {
+            var resp = data;
+            if (resp !== null){
+              $scope.getfungsi = resp;
+            }
+          }).
+          error(function(data, status, headers, config) {
+            console.log("error get fungsi gedung");
+        });
+        //fungsi get data isian
+        $http({
+          url: domainname+"gedung/id/"+getValue('id'), 
+          method: "GET",
+          params: {}
+         }).
+          success(function(data, status, headers, config) {
+            resp = data;
+            if (resp !== null){
+              $scope.gedung.klien = resp.klien;
+              $scope.gedung.logo = resp.logo;
+              $scope.gedung.nama = resp.nama;
+              $scope.gedung.luas = resp.luas;
+              $scope.gedung.alamat = resp.alamat;
+              $scope.gedung.fungsi = resp.fungsi;
+              $scope.gedung.daya = resp.daya;
+              $scope.gedung.baseline = resp.baseline;
+            }
+          }).
+          error(function(data, status, headers, config) {
+            console.log("error get gedung");
+        });
+        //fungsi upload form
+        $scope.uploadComplete = function (content) {
+          if (content !== null || content !== ''){
+            $success = JSON.parse(content);
+            if ($success.succesd==1||$success.succesg==1){
+              $scope.gedung.fail = false;
+              $scope.gedung.success = true;
+            }else{
+              $scope.gedung.success = false;
+              $scope.gedung.fail = true;
+            }
+            console.log('masuk3');
+          }
+        }
+      }]);
+    </script>
+  </body>
+</html>
