@@ -9,27 +9,20 @@ img{
     max-height: 80%;
 }
 
-#tile1{ /* margin 10 px antara tile*/
-    margin: 10px;
-}
-
-.height-tile{ /* height tile pendek*/
-    height: 200px;
-}
 
 .height-tile2{ /* height tile tinggi*/
     height: 410px;
 }
 
-.height-tile3{ /* height tile pendek*/
+.height-tile3{ /* height tile tinggi*/
     height: 250px;
 }
 
 .split{
-    border-style: dashed;
-    border-left: 1px;
-    border-top: 1px;
-    border-bottom: 1px;
+    border-style: solid;
+    border-left: 0.5px;
+    border-top: 0.5px;
+    border-bottom: 0.5px;
 }
 
 .color-logo{
@@ -48,7 +41,6 @@ img{
 .green-back{
     background-color: #6AD35E;
     color: white;
-    height: 100%;
 }
 
 .green-font{
@@ -73,4 +65,8 @@ img{
 
 .padding10{
     padding: 10px;
+}
+
+.margintop10{
+    margin-top: 10px;
 }

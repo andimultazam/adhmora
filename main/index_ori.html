@@ -36,7 +36,7 @@
               <!-- Text input-->
               <div class="form-group" ng-controller="klienCtrl">
                 <label class="col-sm-2 control-label" for="textinput">Klien</label>
-                <div class="col-sm-4 col-sm-offset-3">
+                <div class="col-sm-4 col-sm-offset-1">
                   <input type="text" class="form-control">
                 </div>
               </div>
@@ -44,7 +44,7 @@
               <!-- Text input-->
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="textinput">Logo</label>
-                <div class="col-sm-4 col-sm-offset-3">
+                <div class="col-sm-4 col-sm-offset-1">
                   <input type="text" class="form-control" ng-model="gedung.logo">
                 </div>
               </div>
@@ -52,15 +52,22 @@
               <!-- Text input-->
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="textinput">Nama Bangunan</label>
-                <div class="col-sm-4 col-sm-offset-3">
+                <div class="col-sm-4 col-sm-offset-1">
                   <input type="text" class="form-control" ng-model="gedung.nama">
+                </div>
+              </div>
+
+               <div class="form-group">
+                <label class="col-sm-2 control-label" for="textinput">Alamat</label>
+                <div class="col-sm-4 col-sm-offset-1">
+                  <input type="text" class="form-control" ng-model="gedung.alamat">
                 </div>
               </div>
               
               <!-- Text input-->
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="fungsi-bangunan">Fungsi Bangunan</label>
-                <div class="col-sm-4 col-sm-offset-3">
+                <div class="col-sm-4 col-sm-offset-1">
                   <select class="form-control" id="status" name="fungsi-bangunan" ng-model="gedung.fungsi">
                                 <option>PILIH</option>
                                 <option>fungsi A</option>
@@ -71,14 +78,19 @@
               </div>
 
                <div class="form-group">
-                <label class="col-sm-2 control-label" for="textinput">Batas Daya</label>
-                <div class="col-sm-4 col-sm-offset-3">
+                <label class="col-sm-2 control-label" for="textinput">Daya Terpasang</label>
+                <div class="col-sm-4 col-sm-offset-1">
                   <input type="text" class="form-control" ng-model="gedung.daya">
                 </div>
               </div>
 
-                <button type="submit" class="btn btn-success">Save</button>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="textinput">Baseline sblm Pemasangan</label>
+                <div class="col-sm-4 col-sm-offset-1">
+                  <input type="text" class="form-control" ng-model="gedung.daya">
+                </div>
               </div>
+
             <!--oooooooo part fungsi lantai ooooooo-->
             <!-- Text input-->
               <div class="form-group margin30">
@@ -128,8 +140,8 @@
             <!--oooooooo part fungsi ruang ooooooo-->
             <!-- Text input-->
               <div class="form-group margin30">
-                <label class="col-sm-2 col-sm-offset-2 control-label" for="fungsi-ruang">Fungsi Ruang</label>
-                <div class="col-sm-4 col-sm-offset-1">
+                <label class="col-sm-2 col-sm-offset-1 control-label" for="fungsi-ruang">Fungsi Ruang</label>
+                <div class="col-sm-4 col-sm-offset-2">
                   <select class="form-control" id="status" name="fungsi-ruang">
                                 <option>PILIH</option>
                                 <option>fungsi A</option>
@@ -141,22 +153,22 @@
               
               <!-- Text input-->
               <div class="form-group">
-                <label class="col-sm-2 col-sm-offset-2 control-label" for="textinput">Nama</label>
-                <div class="col-sm-4 col-sm-offset-1">
+                <label class="col-sm-2 col-sm-offset-1 control-label" for="textinput">Nama</label>
+                <div class="col-sm-4 col-sm-offset-2">
                   <input type="text" class="form-control">
                 </div>
               </div>
 
               <!-- Text input-->
               <div class="form-group">
-                <label class="col-sm-2 col-sm-offset-2 control-label" for="textinput">Luas</label>
-                <div class="col-sm-4 col-sm-offset-1">
+                <label class="col-sm-2 col-sm-offset-1 control-label" for="textinput">Luas</label>
+                <div class="col-sm-4 col-sm-offset-2">
                   <input type="text" class="form-control">
                 </div>
               </div>
             
             <div class="form-group margin30">
-              <div class="col-sm-4">
+              <div class="col-sm-3">
                 <div class="pull-right">
                   <button type="submit" class="btn btn-success">Tambah Ruang</button>
                 </div>
@@ -167,8 +179,8 @@
             <!--oooooooo part fungsi tipe lantai ooooooo-->
             <!-- Text input-->
               <div class="form-group margin30">
-                <label class="col-sm-2 col-sm-offset-3 control-label" for="tipe-utilitas">Tipe Utilitas</label>
-                <div class="col-sm-4">
+                <label class="col-sm-2 col-sm-offset-1 control-label" for="tipe-utilitas">Tipe Utilitas</label>
+                <div class="col-sm-4 col-sm-offset-2">
                   <select class="form-control" id="status" name="tipe-utilitas">
                                 <option>PILIH</option>
                                 <option>Tipe A</option>
@@ -180,38 +192,38 @@
 
               <!-- Text input-->
               <div class="form-group">
-                <label class="col-sm-2 col-sm-offset-3 control-label" for="textinput">Nama</label>
-                <div class="col-sm-4">
+                <label class="col-sm-2 col-sm-offset-1 control-label" for="textinput">Nama</label>
+                <div class="col-sm-4 col-sm-offset-2">
                   <input type="text" class="form-control">
                 </div>
               </div>
 
                <!-- Text input-->
               <div class="form-group">
-                <label class="col-sm-2 col-sm-offset-3 control-label" for="textinput">Daya</label>
-                <div class="col-sm-4">
+                <label class="col-sm-2 col-sm-offset-1 control-label" for="textinput">Daya</label>
+                <div class="col-sm-4 col-sm-offset-2">
                   <input type="text" class="form-control">
                 </div>
               </div>
 
                <!-- Text input-->
               <div class="form-group">
-                <label class="col-sm-2 col-sm-offset-3 control-label" for="textinput">ID</label>
-                <div class="col-sm-4">
+                <label class="col-sm-2 col-sm-offset-1 control-label" for="textinput">ID</label>
+                <div class="col-sm-4 col-sm-offset-2">
                   <input type="text" class="form-control">
                 </div>
               </div>
 
                <!-- Text input-->
               <div class="form-group">
-                <label class="col-sm-2 col-sm-offset-3 control-label" for="textinput">ID Sensor</label>
-                <div class="col-sm-4">
+                <label class="col-sm-2 col-sm-offset-1 control-label" for="textinput">ID Sensor</label>
+                <div class="col-sm-4 col-sm-offset-2">
                   <input type="text" class="form-control">
                 </div>
               </div>
 
               <div class="form-group margin30">
-              <div class="col-sm-4 col-sm-offset-1">
+              <div class="col-sm-3">
                 <div class="pull-right">
                   <button type="submit" class="btn btn-success">Tambah Utilitas</button>
                 </div>
@@ -223,7 +235,6 @@
             <div class="form-group margin30">
               <div class="col-sm-4 col-sm-offset-5">
                 <div class="pull-right">
-                  <button type="submit" class="btn btn-default">Cancel</button>
                   <button type="submit" class="btn btn-success">Save</button>
                 </div>
               </div>
