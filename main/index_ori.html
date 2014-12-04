@@ -27,47 +27,50 @@
         <li><a href="#">Utilitas</a></li>
       </ol> <!-- navbar ends -->
 
-    <div class="row">
-      <div class="col-md-12" ng-app="adminApp">
+      <div class="col-md-12 white-back" ng-app="adminApp">
         <form class="form-horizontal" role="form">
           <fieldset>
             <!-- Form Name -->
             <legend><h1>Tambah klien</h1></legend>
               <!-- Text input-->
+            <div class="row">
+            <div class="col-md-6">
               <div class="form-group" ng-controller="klienCtrl">
-                <label class="col-sm-2 control-label" for="textinput">Klien</label>
-                <div class="col-sm-4 col-sm-offset-1">
+                <label class="col-sm-4 control-label" for="textinput">Klien</label>
+                <div class="col-sm-8">
                   <input type="text" class="form-control">
                 </div>
               </div>
 
               <!-- Text input-->
               <div class="form-group">
-                <label class="col-sm-2 control-label" for="textinput">Logo</label>
-                <div class="col-sm-4 col-sm-offset-1">
+                <label class="col-sm-4 control-label" for="textinput">Logo</label>
+                <div class="col-sm-8">
                   <input type="text" class="form-control" ng-model="gedung.logo">
                 </div>
               </div>
 
               <!-- Text input-->
               <div class="form-group">
-                <label class="col-sm-2 control-label" for="textinput">Nama Bangunan</label>
-                <div class="col-sm-4 col-sm-offset-1">
+                <label class="col-sm-4 control-label" for="textinput">Nama Bangunan</label>
+                <div class="col-sm-8">
                   <input type="text" class="form-control" ng-model="gedung.nama">
                 </div>
               </div>
 
                <div class="form-group">
-                <label class="col-sm-2 control-label" for="textinput">Alamat</label>
-                <div class="col-sm-4 col-sm-offset-1">
+                <label class="col-sm-4 control-label" for="textinput">Alamat</label>
+                <div class="col-sm-8">
                   <input type="text" class="form-control" ng-model="gedung.alamat">
                 </div>
               </div>
-              
+            </div>
+
+            <div class="col-md-6">
               <!-- Text input-->
               <div class="form-group">
-                <label class="col-sm-2 control-label" for="fungsi-bangunan">Fungsi Bangunan</label>
-                <div class="col-sm-4 col-sm-offset-1">
+                <label class="col-sm-4 control-label" for="fungsi-bangunan">Fungsi Bangunan</label>
+                <div class="col-sm-8">
                   <select class="form-control" id="status" name="fungsi-bangunan" ng-model="gedung.fungsi">
                                 <option>PILIH</option>
                                 <option>fungsi A</option>
@@ -78,20 +81,21 @@
               </div>
 
                <div class="form-group">
-                <label class="col-sm-2 control-label" for="textinput">Daya Terpasang</label>
-                <div class="col-sm-4 col-sm-offset-1">
+                <label class="col-sm-4 control-label" for="textinput">Daya Terpasang</label>
+                <div class="col-sm-8">
                   <input type="text" class="form-control" ng-model="gedung.daya">
                 </div>
               </div>
 
               <div class="form-group">
-                <label class="col-sm-2 control-label" for="textinput">Baseline sblm Pemasangan</label>
-                <div class="col-sm-4 col-sm-offset-1">
+                <label class="col-sm-4 control-label" for="textinput">Baseline sblm Pemasangan</label>
+                <div class="col-sm-8">
                   <input type="text" class="form-control" ng-model="gedung.daya">
                 </div>
               </div>
-
+            </div>
             <!--oooooooo part fungsi lantai ooooooo-->
+          </div>
             <!-- Text input-->
               <div class="form-group margin30">
                 <label class="col-sm-2 col-sm-offset-1 control-label" for="fungsi-lantai">Fungsi Lantai</label>
@@ -137,100 +141,6 @@
             </div>
             <!--oooooooo part fungsi lantai ooooooo-->
 
-            <!--oooooooo part fungsi ruang ooooooo-->
-            <!-- Text input-->
-              <div class="form-group margin30">
-                <label class="col-sm-2 col-sm-offset-1 control-label" for="fungsi-ruang">Fungsi Ruang</label>
-                <div class="col-sm-4 col-sm-offset-2">
-                  <select class="form-control" id="status" name="fungsi-ruang">
-                                <option>PILIH</option>
-                                <option>fungsi A</option>
-                                <option>fungsi B</option>
-                                <option>fungsi C</option>
-                  </select>
-                </div>
-              </div>
-              
-              <!-- Text input-->
-              <div class="form-group">
-                <label class="col-sm-2 col-sm-offset-1 control-label" for="textinput">Nama</label>
-                <div class="col-sm-4 col-sm-offset-2">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <!-- Text input-->
-              <div class="form-group">
-                <label class="col-sm-2 col-sm-offset-1 control-label" for="textinput">Luas</label>
-                <div class="col-sm-4 col-sm-offset-2">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-            
-            <div class="form-group margin30">
-              <div class="col-sm-3">
-                <div class="pull-right">
-                  <button type="submit" class="btn btn-success">Tambah Ruang</button>
-                </div>
-              </div>
-            </div>
-            <!--oooooooo part fungsi ruang ooooooo-->
-
-            <!--oooooooo part fungsi tipe lantai ooooooo-->
-            <!-- Text input-->
-              <div class="form-group margin30">
-                <label class="col-sm-2 col-sm-offset-1 control-label" for="tipe-utilitas">Tipe Utilitas</label>
-                <div class="col-sm-4 col-sm-offset-2">
-                  <select class="form-control" id="status" name="tipe-utilitas">
-                                <option>PILIH</option>
-                                <option>Tipe A</option>
-                                <option>Tipe B</option>
-                                <option>Tipe C</option>
-                  </select>
-                </div>
-              </div>
-
-              <!-- Text input-->
-              <div class="form-group">
-                <label class="col-sm-2 col-sm-offset-1 control-label" for="textinput">Nama</label>
-                <div class="col-sm-4 col-sm-offset-2">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-               <!-- Text input-->
-              <div class="form-group">
-                <label class="col-sm-2 col-sm-offset-1 control-label" for="textinput">Daya</label>
-                <div class="col-sm-4 col-sm-offset-2">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-               <!-- Text input-->
-              <div class="form-group">
-                <label class="col-sm-2 col-sm-offset-1 control-label" for="textinput">ID</label>
-                <div class="col-sm-4 col-sm-offset-2">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-               <!-- Text input-->
-              <div class="form-group">
-                <label class="col-sm-2 col-sm-offset-1 control-label" for="textinput">ID Sensor</label>
-                <div class="col-sm-4 col-sm-offset-2">
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-
-              <div class="form-group margin30">
-              <div class="col-sm-3">
-                <div class="pull-right">
-                  <button type="submit" class="btn btn-success">Tambah Utilitas</button>
-                </div>
-              </div>
-            </div>
-            <!--oooooooo part fungsi tipe lantai ooooooo-->
-
 
             <div class="form-group margin30">
               <div class="col-sm-4 col-sm-offset-5">
@@ -242,13 +152,293 @@
 
           </fieldset>
         </form>
-      </div><!-- /.col-lg-12 -->
-  </div><!-- /.row -->
+
+        <table class="table table-striped margin50">
+                <thead>
+                    <tr>
+                        <th>
+                            RUANG
+                        </th>
+                        <th>
+                            UTILITAS
+                        </th>
+                        <th>
+                            NAMA
+                        </th>
+                         <th>
+                            ID
+                        </th>
+                        <th>
+                            DAYA
+                        </th>
+                        <th>
+                            SNSR OKPNSI
+                        </th>
+                         <th>
+                            SNSR A
+                        </th>
+                        <th>
+                            SNSR B
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>
+                            Lobi
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                            245
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+
+                     <tr>
+                        <td>
+                        </td>
+                        <td>
+                            Utilitas
+                        </td>
+                    </tr>
+
+                     <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-add">+</button>
+                            <select class="form-control" id="sensor-A" name="pilih-sensorA">
+                              <option>PILIH</option>
+                              <option>Lampu</option>
+                              <option>HVAC</option>
+                              <option>Lain lain</option>
+                          </select>
+                        </td>
+                        <td>
+                            Lampu 1
+                        </td>
+                        <td>
+                            defr3
+                        </td>
+                        <td>
+                            100
+                        </td>
+                        <td>
+                          <select class="form-control" id="okupansi" name="pilih-okupansi">
+                              <option>PILIH</option>
+                              <option>okupansi 1</option>
+                              <option>okupansi 2</option>
+                              <option>okupansi 3</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-control" id="sensor-A" name="pilih-sensorA">
+                              <option>PILIH</option>
+                              <option>Luminansi 1</option>
+                              <option>Temeperatur 1</option>
+                              <option>Kelembaban 1</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-control" id="sensor-B" name="pilih-sensorB">
+                              <option>PILIH</option>
+                              <option>Luminansi 1</option>
+                              <option>Temeperatur 1</option>
+                              <option>Kelembaban 1</option>
+                          </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        <button type="button" class="btn btn-danger btn-add">+</button>
+                          <select class="form-control" id="utilitas" name="pilih-utilitas">
+                              <option>PILIH</option>
+                              <option>Lampu</option>
+                              <option>HVAC</option>
+                              <option>Lain lain</option>
+                          </select>
+                        </td>
+                        <td>
+                            Lampu 1
+                        </td>
+                        <td>
+                            defr3
+                        </td>
+                        <td>
+                            100
+                        </td>
+                        <td>
+                          <select class="form-control" id="okupansi" name="pilih-okupansi">
+                              <option>PILIH</option>
+                              <option>okupansi 1</option>
+                              <option>okupansi 2</option>
+                              <option>okupansi 3</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-control" id="sensor-A" name="pilih-sensorA">
+                              <option>PILIH</option>
+                              <option>Luminansi 1</option>
+                              <option>Temeperatur 1</option>
+                              <option>Kelembaban 1</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-control" id="sensor-B" name="pilih-sensorB">
+                              <option>PILIH</option>
+                              <option>Luminansi 1</option>
+                              <option>Temeperatur 1</option>
+                              <option>Kelembaban 1</option>
+                          </select>
+                        </td>
+                    </tr>
+
+                     <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <button id="add_row" type="submit" class="btn btn-success">Tambah Lantai</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            SENSOR
+                        </td>
+                    </tr>
+
+                     <tr>
+                        <td>
+                        </td>
+                        <td>
+                          <select class="form-control" id="utilitas" name="pilih-utilitas">
+                              <option>PILIH</option>
+                              <option>Okupansi</option>
+                              <option>Luminansi</option>
+                              <option>Temperatur</option>
+                              <option>Kelembaban</option>
+                          </select>
+                        </td>
+                        <td>
+                            Okupansi 1
+                        </td>
+                        <td>
+                            defc3
+                        </td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                          <select class="form-control" id="utilitas" name="pilih-utilitas">
+                              <option>PILIH</option>
+                              <option>Okupansi</option>
+                              <option>Luminansi</option>
+                              <option>Temperatur</option>
+                              <option>Kelembaban</option>
+                          </select>
+                        </td>
+                        <td>
+                            Okupansi 1
+                        </td>
+                        <td>
+                            defc3
+                        </td>
+                        
+                    </tr>
+
+                     <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-success">Tambah Lantai</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <button type="submit" class="btn btn-success">Tambah Lantai</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+    <!--div class="row clearfix">
+      <table class="table table-bordered table-hover table-sortable" id="tab_logic">
+        <thead>
+          <tr >
+            <th class="text-center">
+              Name
+            </th>
+            <th class="text-center">
+              Email
+            </th>
+            <th class="text-center">
+              Notes
+            </th>
+              <th class="text-center">
+              Option
+            </th>
+                <th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr id='addr0' data-id="0" class="hidden">
+            <td data-name="name">
+                <input type="text" name='name0'  placeholder='Name' class="form-control"/>
+            </td>
+            <td data-name="mail">
+                <input type="text" name='mail0' placeholder='Email' class="form-control"/>
+            </td>
+            <td data-name="desc">
+                <textarea name="desc0" placeholder="Description" class="form-control"></textarea>
+            </td>
+              <td data-name="sel">
+                <select name="sel0">
+                        <option value"">Select Option</option>
+                      <option value"1">Option 1</option>
+                        <option value"2">Option 2</option>
+                        <option value"3">Option 3</option>
+                </select>
+            </td>
+                        <td data-name="del">
+                            <button nam"del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
+                        </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  <a id="add_row" class="btn btn-default pull-right">Add Row</a-->
+
+
+ </div><!-- /.col-lg-12 -->
   </section>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery-2.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/table.js"></script>
     <script src="js/utility.js"></script>
     <script src="js/angular.min.js"></script>
     <script src="js/angular-sanitize.js"></script>
@@ -280,5 +470,6 @@
         });
       }]);
     </script>
+    
   </body>
 </html>

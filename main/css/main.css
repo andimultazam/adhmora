@@ -18,14 +18,15 @@ img{
     height: 250px;
 }
 
-.split{
-    border-style: solid;
-    border-left: 0.5px;
-    border-top: 0.5px;
-    border-bottom: 0.5px;
+.split{ /* garis pemisah*/
+    border-style: dotted;
+    border-left: 1px;
+    border-top: 1px;
+    border-bottom: 1px;
 }
 
-.color-logo{
+/* color*/
+.color-logo{ 
     background-color: #353D37;
     color: white;
 }
@@ -47,6 +48,7 @@ img{
     color: #6AD35E;
 }
 
+/*alignment*/
 .center-align{
     text-align: center;
 }
@@ -59,14 +61,25 @@ img{
     text-align: left;
 }
 
+/* margin & padding*/
 .margin30{
     margin-top: 30px;
 }
 
-.padding10{
-    padding: 10px;
+.margin50{
+    margin-top: 50px;
+}
+
+.padding-gen{
+    padding-left: 30px;
+    padding-top: 20px
 }
 
 .margintop10{
     margin-top: 10px;
+}
+
+/* table no border*/
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+border-top: none !important;
 }
