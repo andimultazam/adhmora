@@ -17,272 +17,459 @@
   </head>
   <body>
     <section class="container">
-    <div class="row">
-      <div class="col-md-12" ng-app="adminApp">
-        <div ng-controller="klienCtrl">
-          <form class="form-horizontal" role="form" name="klienForm" ng-upload="uploadComplete(content)" action="{{gedung.url}}" upload-options-convert-hidden="true">
-            <fieldset>
-              <!-- Form Name -->
-              <legend><h1>Tambah klien</h1></legend>
-                <!-- Text input-->
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="textinput">Klien</label>
-                  <div class="col-sm-4 col-sm-offset-3">
-                    <input type="text" class="form-control" name="klien" ng-model="gedung.klien">
-                  </div>
-                </div>
 
-                <!-- Text input-->
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="textinput">Logo</label>
-                  <div class="col-sm-4 col-sm-offset-3">
-                    <img ng-src="{{gedung.logo}}" ng-show="gedung.logo" />
-                    <input type="file" name="logo" accept="image/*" ng-model="gedung.logo" />
-                  </div>
-                </div>
+      <!-- navbar -->
+      <ol class="breadcrumb"> 
+        <li><a href="#">Admin</a></li>
+        <li><a href="#">General Info</a></li>
+        <li><a href="#">Graph</a></li>
+        <li><a href="#">Denah</a></li>
+        <li><a href="#">Utilitas</a></li>
+      </ol> <!-- navbar ends -->
 
-                <!-- Text input-->
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="textinput">Nama Bangunan</label>
-                  <div class="col-sm-4 col-sm-offset-3">
-                    <input type="text" class="form-control" ng-model="gedung.nama" name="nama">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="textinput">Luas Bangunan</label>
-                  <div class="col-sm-4 col-sm-offset-3">
-                    <input type="text" class="form-control" ng-model="gedung.luas" name="luas">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="textinput">Alamat</label>
-                  <div class="col-sm-4 col-sm-offset-3">
-                    <textarea ng-model="gedung.alamat" name="alamat"></textarea>
-                  </div>
-                </div>
-                
-                <!-- Text input-->
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="fungsi-bangunan">Fungsi Bangunan</label>
-                  <div class="col-sm-4 col-sm-offset-3">
-                    <select ng-model="gedung.fungsi" ng-options="fungsi.idfungsi as fungsi.nama for fungsi in getfungsi" name="fungsi"></select>
-                    <input type="hidden" name="fungsi_val" ng-model="gedung.fungsi" />
-                  </div>
-                </div>
-
-                 <div class="form-group">
-                  <label class="col-sm-2 control-label" for="textinput">Daya Terpasang</label>
-                  <div class="col-sm-4 col-sm-offset-3">
-                    <input type="text" class="form-control" ng-model="gedung.daya" name="daya">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="textinput">Baseline</label>
-                  <div class="col-sm-4 col-sm-offset-3">
-                    <input type="text" class="form-control" ng-model="gedung.baseline" name="baseline">
-                  </div>
-                </div>
-
-              <div class="form-group margin30">
-              <div class="alert alert-success" role="alert" ng-show="gedung.success">Data berhasil disimpan</div>
-              <div class="alert alert-warning" role="alert" ng-show="gedung.fail">Data gagal disimpan</div>
-                <div class="col-sm-4 col-sm-offset-5">
-                  <div class="pull-right">
-                    <button type="submit" class="btn btn-success" upload-submit="">Save</button>
-                  </div>
+      <div class="col-md-12 white-back" ng-app="adminApp">
+        <form class="form-horizontal" role="form">
+          <fieldset>
+            <!-- Form Name -->
+            <legend><h1>Tambah klien</h1></legend>
+              <!-- Text input-->
+            <div class="row">
+            <div class="col-md-6">
+              <div class="form-group" ng-controller="klienCtrl">
+                <label class="col-sm-4 control-label" for="textinput">Klien</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control">
                 </div>
               </div>
-            </fieldset>
-          </form>
-        </div>
-        <div ng-controller="lantaiCtrl">
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-              <ul>
-                <li ng-repeat="selantai in lantais" ng-click="klikLantai($event,$index)"><a>Lantai {{$index+1}}</a></li>
-              </ul>
-            </div>
-          </div>
-          <form class="form-horizontal" role="form" name="lantaiForm" ng-upload="uploadLantai(content)" action="{{lantaiurl}}" upload-options-convert-hidden="true">
-            <div>
-              <input type="hidden" name="idlantai" ng-model="vlantai.idlantai" />
+
+              <!-- Text input-->
               <div class="form-group">
-                <label class="col-sm-2 control-label" for="fungsi-bangunan">Fungsi Lantai</label>
-                <div class="col-sm-4 col-sm-offset-3">
-                  <select ng-model="vlantai.fungsi" ng-options="fungsi.idfungsi as fungsi.nama for fungsi in getfungsi" name="fungsilantai"></select>
-                  <input type="hidden" name="fungsilantai_val" ng-model="vlantai.fungsi" />
+                <label class="col-sm-4 control-label" for="textinput">Logo</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" ng-model="gedung.logo">
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-sm-4 control-label" for="textinput">Nama Bangunan</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" ng-model="gedung.nama">
                 </div>
               </div>
 
                <div class="form-group">
-                <label class="col-sm-2 control-label" for="textinput">Nama</label>
-                <div class="col-sm-4 col-sm-offset-3">
-                  <input type="text" class="form-control" ng-model="vlantai.nama" name="nama">
+                <label class="col-sm-4 control-label" for="textinput">Alamat</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" ng-model="gedung.alamat">
                 </div>
               </div>
-
-              <div class="form-group">
-                <label class="col-sm-2 control-label" for="textinput">Luas</label>
-                <div class="col-sm-4 col-sm-offset-3">
-                  <input type="text" class="form-control" ng-model="vlantai.luas" name="luas">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="col-sm-2 control-label" for="textinput">Denah</label>
-                <div class="col-sm-4 col-sm-offset-3">
-                  <img ng-src="{{vlantai.denah}}" ng-show="vlantai.denah" />
-                  <input type="file" name="denah" accept="image/*" ng-model="vlantai.denah" />
-                </div>
-              </div>
-              <h1>Ruang:{{vlantai.ruang.length}}</h1>
-              <div ng-repeat="ruang in vlantai.ruang">
-                <input type="hidden" name="idruang-{{ruang.idruang}}" ng-model="ruang.idruang" />
-                <h2>ruang = {{ruang.nama}}, daya = {{ruang.daya}}</h2>
-                <h2>Utilitas:{{ruang.utilitas.length}}</h2>
-                <div ng-repeat="utilitas in ruang.utilitas">
-                  <input type="hidden" name="idaktuator-{{utilitas.idutilitas_pasang}}" ng-model="utilitas.idutilitas_pasang" />
-                  <h3>tipeutil={{utilitas.util_tipe}}, utilitas={{utilitas.util_nama}}, nama={{utilitas.nama}}, id={{utilitas.idpasang}}, daya={{utilitas.daya}}, idsensor={{utilitas.sensor1}}&amp;{{utilitas.sensor2}}</h3>
-                </div>
-                <h2>Sensor:{{ruang.sensor.length}}</h2>
-                <div ng-repeat="sensor in ruang.sensor">
-                  <input type="hidden" name="idsensor-{{sensor.idutilitas_pasang}}" ng-model="sensor.idutilitas_pasang" />
-                  <h3>tipesensor={{sensor.util_tipe}}, sensor={{sensor.util_nama}}, nama={{sensor.nama}}, id={{sensor.idpasang}}</h3>
-                </div>
-              </div>
-              <!--end of field-->
             </div>
-          </form>
-        </div>
-      </div><!-- /.col-lg-12 -->
-    </div><!-- /.row -->
-    </section>
+
+            <div class="col-md-6">
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-sm-4 control-label" for="fungsi-bangunan">Fungsi Bangunan</label>
+                <div class="col-sm-8">
+                  <select class="form-control" id="status" name="fungsi-bangunan" ng-model="gedung.fungsi">
+                                <option>PILIH</option>
+                                <option>fungsi A</option>
+                                <option>fungsi B</option>
+                                <option>fungsi C</option>
+                  </select>
+                </div>
+              </div>
+
+               <div class="form-group">
+                <label class="col-sm-4 control-label" for="textinput">Daya Terpasang</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" ng-model="gedung.daya">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-4 control-label" for="textinput">Baseline sblm Pemasangan</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" ng-model="gedung.daya">
+                </div>
+              </div>
+            </div>
+            <!--oooooooo part fungsi lantai ooooooo-->
+          </div>
+            <!-- Text input-->
+              <div class="form-group margin30">
+                <label class="col-sm-2 col-sm-offset-1 control-label" for="fungsi-lantai">Fungsi Lantai</label>
+                <div class="col-sm-4 col-sm-offset-2">
+                  <select class="form-control" id="status" name="fungsi-lantai">
+                                <option>PILIH</option>
+                                <option>fungsi A</option>
+                                <option>fungsi B</option>
+                                <option>fungsi C</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-sm-2 col-sm-offset-1 control-label" for="textinput">Nama</label>
+                <div class="col-sm-4 col-sm-offset-2">
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-sm-2 col-sm-offset-1 control-label" for="textinput">Luas</label>
+                <div class="col-sm-4 col-sm-offset-2">
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+               <!-- Text input-->
+              <div class="form-group">
+                <label class="col-sm-2 col-sm-offset-1 control-label" for="textinput">Denah</label>
+                <div class="col-sm-4 col-sm-offset-2">
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+
+            <div class="form-group margin30">
+              <div class="col-sm-3">
+                <div class="pull-right">
+                  <button type="submit" class="btn btn-success">Tambah Lantai</button>
+                </div>
+              </div>
+            </div>
+            <!--oooooooo part fungsi lantai ooooooo-->
+
+
+            <div class="form-group margin30">
+              <div class="col-sm-4 col-sm-offset-5">
+                <div class="pull-right">
+                  <button type="submit" class="btn btn-success">Save</button>
+                </div>
+              </div>
+            </div>
+
+          </fieldset>
+        </form>
+
+        <table class="table table-striped margin50">
+                <thead>
+                    <tr>
+                        <th>
+                            RUANG
+                        </th>
+                        <th>
+                            UTILITAS
+                        </th>
+                        <th>
+                            NAMA
+                        </th>
+                         <th>
+                            ID
+                        </th>
+                        <th>
+                            DAYA
+                        </th>
+                        <th>
+                            SNSR OKPNSI
+                        </th>
+                         <th>
+                            SNSR A
+                        </th>
+                        <th>
+                            SNSR B
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>
+                            Lobi
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                            245
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+
+                     <tr>
+                        <td>
+                        </td>
+                        <td>
+                            Utilitas
+                        </td>
+                    </tr>
+
+                     <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-add">+</button>
+                            <select class="form-control" id="sensor-A" name="pilih-sensorA">
+                              <option>PILIH</option>
+                              <option>Lampu</option>
+                              <option>HVAC</option>
+                              <option>Lain lain</option>
+                          </select>
+                        </td>
+                        <td>
+                            Lampu 1
+                        </td>
+                        <td>
+                            defr3
+                        </td>
+                        <td>
+                            100
+                        </td>
+                        <td>
+                          <select class="form-control" id="okupansi" name="pilih-okupansi">
+                              <option>PILIH</option>
+                              <option>okupansi 1</option>
+                              <option>okupansi 2</option>
+                              <option>okupansi 3</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-control" id="sensor-A" name="pilih-sensorA">
+                              <option>PILIH</option>
+                              <option>Luminansi 1</option>
+                              <option>Temeperatur 1</option>
+                              <option>Kelembaban 1</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-control" id="sensor-B" name="pilih-sensorB">
+                              <option>PILIH</option>
+                              <option>Luminansi 1</option>
+                              <option>Temeperatur 1</option>
+                              <option>Kelembaban 1</option>
+                          </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                        <button type="button" class="btn btn-danger btn-add">+</button>
+                          <select class="form-control" id="utilitas" name="pilih-utilitas">
+                              <option>PILIH</option>
+                              <option>Lampu</option>
+                              <option>HVAC</option>
+                              <option>Lain lain</option>
+                          </select>
+                        </td>
+                        <td>
+                            Lampu 1
+                        </td>
+                        <td>
+                            defr3
+                        </td>
+                        <td>
+                            100
+                        </td>
+                        <td>
+                          <select class="form-control" id="okupansi" name="pilih-okupansi">
+                              <option>PILIH</option>
+                              <option>okupansi 1</option>
+                              <option>okupansi 2</option>
+                              <option>okupansi 3</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-control" id="sensor-A" name="pilih-sensorA">
+                              <option>PILIH</option>
+                              <option>Luminansi 1</option>
+                              <option>Temeperatur 1</option>
+                              <option>Kelembaban 1</option>
+                          </select>
+                        </td>
+                        <td>
+                          <select class="form-control" id="sensor-B" name="pilih-sensorB">
+                              <option>PILIH</option>
+                              <option>Luminansi 1</option>
+                              <option>Temeperatur 1</option>
+                              <option>Kelembaban 1</option>
+                          </select>
+                        </td>
+                    </tr>
+
+                     <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <button id="add_row" type="submit" class="btn btn-success">Tambah Lantai</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            SENSOR
+                        </td>
+                    </tr>
+
+                     <tr>
+                        <td>
+                        </td>
+                        <td>
+                          <select class="form-control" id="utilitas" name="pilih-utilitas">
+                              <option>PILIH</option>
+                              <option>Okupansi</option>
+                              <option>Luminansi</option>
+                              <option>Temperatur</option>
+                              <option>Kelembaban</option>
+                          </select>
+                        </td>
+                        <td>
+                            Okupansi 1
+                        </td>
+                        <td>
+                            defc3
+                        </td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                          <select class="form-control" id="utilitas" name="pilih-utilitas">
+                              <option>PILIH</option>
+                              <option>Okupansi</option>
+                              <option>Luminansi</option>
+                              <option>Temperatur</option>
+                              <option>Kelembaban</option>
+                          </select>
+                        </td>
+                        <td>
+                            Okupansi 1
+                        </td>
+                        <td>
+                            defc3
+                        </td>
+                        
+                    </tr>
+
+                     <tr>
+                        <td>
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-success">Tambah Lantai</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <button type="submit" class="btn btn-success">Tambah Lantai</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+    <!--div class="row clearfix">
+      <table class="table table-bordered table-hover table-sortable" id="tab_logic">
+        <thead>
+          <tr >
+            <th class="text-center">
+              Name
+            </th>
+            <th class="text-center">
+              Email
+            </th>
+            <th class="text-center">
+              Notes
+            </th>
+              <th class="text-center">
+              Option
+            </th>
+                <th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr id='addr0' data-id="0" class="hidden">
+            <td data-name="name">
+                <input type="text" name='name0'  placeholder='Name' class="form-control"/>
+            </td>
+            <td data-name="mail">
+                <input type="text" name='mail0' placeholder='Email' class="form-control"/>
+            </td>
+            <td data-name="desc">
+                <textarea name="desc0" placeholder="Description" class="form-control"></textarea>
+            </td>
+              <td data-name="sel">
+                <select name="sel0">
+                        <option value"">Select Option</option>
+                      <option value"1">Option 1</option>
+                        <option value"2">Option 2</option>
+                        <option value"3">Option 3</option>
+                </select>
+            </td>
+                        <td data-name="del">
+                            <button nam"del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
+                        </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  <a id="add_row" class="btn btn-default pull-right">Add Row</a-->
+
+
+ </div><!-- /.col-lg-12 -->
+  </section>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery-2.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/table.js"></script>
     <script src="js/utility.js"></script>
     <script src="js/angular.min.js"></script>
-    <script src="js/ng-upload.js"></script>
     <script src="js/angular-sanitize.js"></script>
     <script>
-      //var lantai = [];
-      var adminApp = angular.module('adminApp', ["ngSanitize",'ngUpload']);
-      //klien controller
+      var adminApp = angular.module('adminApp', ["ngSanitize"]);
+      //klien control
       adminApp.controller('klienCtrl', ['$scope','$http', function ($scope,$http) {
         $scope.gedung = {};
-        $scope.getfungsi = {};
-        $scope.gedung.url = domainname+"gedung/edit/"+getValue('id');
-        //fungsi get list fungsi gedung
-        $http({
-          url: domainname+"fungsi/gedung", 
-          method: "GET",
-          params: {}
-         }).
-          success(function(data, status, headers, config) {
-            var resp = data;
-            if (resp !== null){
-              $scope.getfungsi = resp;
-            }
-          }).
-          error(function(data, status, headers, config) {
-            console.log("error get fungsi gedung");
-        });
-        //fungsi get data isian
         $http({
           url: domainname+"gedung/id/"+getValue('id'), 
           method: "GET",
           params: {}
          }).
           success(function(data, status, headers, config) {
-            resp = data;
+            var resp = JSON.parse(JSON.parse(data));
             if (resp !== null){
+              //console.log(resp);
               $scope.gedung.klien = resp.klien;
               $scope.gedung.logo = resp.logo;
               $scope.gedung.nama = resp.nama;
-              $scope.gedung.luas = resp.luas;
-              $scope.gedung.alamat = resp.alamat;
-              $scope.gedung.fungsi = resp.fungsi;
+              $scope.gedung.fungsi = resp.fungsi_nama;
               $scope.gedung.daya = resp.daya;
-              $scope.gedung.baseline = resp.baseline;
             }
           }).
           error(function(data, status, headers, config) {
-            console.log("error get gedung");
+          // called asynchronously if an error occurs
+          // or server returns response with an error status.
+          console.log("error get gedung");
         });
-        //fungsi upload form
-        $scope.uploadComplete = function (content) {
-          if (content !== null || content !== ''){
-            $success = JSON.parse(content);
-            if ($success.succesd==1||$success.succesg==1){
-              $scope.gedung.fail = false;
-              $scope.gedung.success = true;
-            }else{
-              $scope.gedung.success = false;
-              $scope.gedung.fail = true;
-            }
-          }
-        }
-      }]);
-      //lantai controller
-      adminApp.controller('lantaiCtrl', ['$scope','$http', function ($scope,$http) {
-        var index = 0;
-        $scope.lantais = [];
-        $scope.vlantai = {};
-        $scope.getfungsi = {};
-        $scope.lantaiurl = domainname+"lantai/simpan/id";
-        //fungsi get list fungsi lantai
-        $http({
-          url: domainname+"fungsi/lantai", 
-          method: "GET",
-          params: {}
-         }).
-          success(function(data, status, headers, config) {
-            var resp = data;
-            if (resp !== null){
-              $scope.getfungsi = resp;
-            }
-          }).
-          error(function(data, status, headers, config) {
-            console.log("error get fungsi gedung");
-        });
-        //fungsi get data isian
-        $http({
-          url: domainname+"lantai/all/"+getValue('id'), 
-          method: "GET",
-          params: {}
-         }).
-          success(function(data, status, headers, config) {
-            var resp = data;
-            if (resp !== null){
-              $scope.lantais = resp;
-              $scope.vlantai = $scope.lantais[index];
-              //console.log($scope.lantais[index].ruang);
-            }
-          }).
-          error(function(data, status, headers, config) {
-            console.log("error get gedung");
-        });
-        //fungsi klik lantai
-        $scope.klikLantai = function($event, idx) {
-            index = idx;
-            $scope.vlantai = $scope.lantais[index];
-        }
-        //fungsi upload form
-        $scope.uploadLantai = function (content) {
-          if (content !== null || content !== ''){
-            $success = JSON.parse(content);
-            if ($success.succesd==1||$success.succesg==1){
-              
-            }else{
-              
-            }
-          }
-        }
       }]);
     </script>
+    
   </body>
 </html>

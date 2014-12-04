@@ -15,224 +15,77 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
-    <section class="container">
-
-      <!-- navbar -->
-      <ol class="breadcrumb"> 
-        <li><a href="#">Admin</a></li>
-        <li><a href="#">General Info</a></li>
-        <li><a href="#">Graph</a></li>
-        <li><a href="#">Denah</a></li>
-        <li><a href="#">Utilitas</a></li>
-      </ol> <!-- navbar ends -->
-
-    <div class="row">
-      <div class="col-md-12" ng-app="adminApp">
-        <div ng-controller="klienCtrl">
-          <form class="form-horizontal" role="form">
-            <fieldset>
-              <!-- Form Name -->
-              <legend><h1>Tambah klien</h1></legend>
-                <!-- Text input-->
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="textinput">Klien</label>
-                  <div class="col-sm-4 col-sm-offset-3">
-                    <input type="text" class="form-control" ng-model="gedung.klien">
-                  </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="textinput">Logo</label>
-                  <div class="col-sm-4 col-sm-offset-3">
-                    <input type="text" class="form-control" ng-model="gedung.logo">
-                  </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="textinput">Nama Bangunan</label>
-                  <div class="col-sm-4 col-sm-offset-3">
-                    <input type="text" class="form-control" ng-model="gedung.nama">
-                  </div>
-                </div>
-                
-                <!-- Text input-->
-                <div class="form-group">
-                  <label class="col-sm-2 control-label" for="fungsi-bangunan">Fungsi Bangunan</label>
-                  <div class="col-sm-4 col-sm-offset-3">
-                    <select class="form-control" id="status" name="fungsi-bangunan">
-                      <option>PILIH</option>
-                      <option>fungsi A</option>
-                      <option>fungsi B</option>
-                      <option>fungsi C</option>
-                    </select>
-                  </div>
-                </div>
-
-                 <div class="form-group">
-                  <label class="col-sm-2 control-label" for="textinput">Batas Daya</label>
-                  <div class="col-sm-4 col-sm-offset-3">
-                    <input type="text" class="form-control" ng-model="gedung.daya">
-                  </div>
-                </div>
-
-              <!--oooooooo part fungsi lantai ooooooo-->
-              <!-- Text input-->
-                <div class="form-group margin30">
-                  <label class="col-sm-2 col-sm-offset-1 control-label" for="fungsi-lantai">Fungsi Lantai</label>
-                  <div class="col-sm-4 col-sm-offset-2">
-                    <select class="form-control" id="status" name="fungsi-lantai">
-                      <option>PILIH</option>
-                      <option>fungsi A</option>
-                      <option>fungsi B</option>
-                      <option>fungsi C</option>
-                    </select>
-                  </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-offset-1 control-label" for="textinput">Nama</label>
-                  <div class="col-sm-4 col-sm-offset-2">
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-offset-1 control-label" for="textinput">Luas</label>
-                  <div class="col-sm-4 col-sm-offset-2">
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-                 <!-- Text input-->
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-offset-1 control-label" for="textinput">Denah</label>
-                  <div class="col-sm-4 col-sm-offset-2">
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-
-              <div class="form-group margin30">
-                <div class="col-sm-3">
-                  <div class="pull-right">
-                    <button type="submit" class="btn btn-success">Tambah Lantai</button>
-                  </div>
-                </div>
-              </div>
-              <!--oooooooo part fungsi lantai ooooooo-->
-
-              <!--oooooooo part fungsi ruang ooooooo-->
-              <!-- Text input-->
-                <div class="form-group margin30">
-                  <label class="col-sm-2 col-sm-offset-2 control-label" for="fungsi-ruang">Fungsi Ruang</label>
-                  <div class="col-sm-4 col-sm-offset-1">
-                    <select class="form-control" id="status" name="fungsi-ruang">
-                      <option>PILIH</option>
-                      <option>fungsi A</option>
-                      <option>fungsi B</option>
-                      <option>fungsi C</option>
-                    </select>
-                  </div>
-                </div>
-                
-                <!-- Text input-->
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-offset-2 control-label" for="textinput">Nama</label>
-                  <div class="col-sm-4 col-sm-offset-1">
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-offset-2 control-label" for="textinput">Luas</label>
-                  <div class="col-sm-4 col-sm-offset-1">
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-              
-              <div class="form-group margin30">
-                <div class="col-sm-4">
-                  <div class="pull-right">
-                    <button type="submit" class="btn btn-success">Tambah Ruang</button>
-                  </div>
-                </div>
-              </div>
-              <!--oooooooo part fungsi ruang ooooooo-->
-
-              <!--oooooooo part fungsi tipe lantai ooooooo-->
-              <!-- Text input-->
-                <div class="form-group margin30">
-                  <label class="col-sm-2 col-sm-offset-3 control-label" for="tipe-utilitas">Tipe Utilitas</label>
-                  <div class="col-sm-4">
-                    <select class="form-control" id="status" name="tipe-utilitas">
-                      <option>PILIH</option>
-                      <option>Tipe A</option>
-                      <option>Tipe B</option>
-                      <option>Tipe C</option>
-                    </select>
-                  </div>
-                </div>
-
-                <!-- Text input-->
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-offset-3 control-label" for="textinput">Nama</label>
-                  <div class="col-sm-4">
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-
-                 <!-- Text input-->
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-offset-3 control-label" for="textinput">Daya</label>
-                  <div class="col-sm-4">
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-
-                 <!-- Text input-->
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-offset-3 control-label" for="textinput">ID</label>
-                  <div class="col-sm-4">
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-
-                 <!-- Text input-->
-                <div class="form-group">
-                  <label class="col-sm-2 col-sm-offset-3 control-label" for="textinput">ID Sensor</label>
-                  <div class="col-sm-4">
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
-
-                <div class="form-group margin30">
-                <div class="col-sm-4 col-sm-offset-1">
-                  <div class="pull-right">
-                    <button type="submit" class="btn btn-success">Tambah Utilitas</button>
-                  </div>
-                </div>
-              </div>
-              <!--oooooooo part fungsi tipe lantai ooooooo-->
-
-
-              <div class="form-group margin30">
-                <div class="col-sm-4 col-sm-offset-5">
-                  <div class="pull-right">
-                    <button type="submit" class="btn btn-default">Cancel</button>
-                    <button type="submit" class="btn btn-success">Save</button>
-                  </div>
-                </div>
-              </div>
-
-            </fieldset>
-          </form>
+  <body class="grey-back">
+  <section class="container" ng-app="generalApp">
+  
+    <!--ooooooo status keseluruhan  ooooooooo-->
+      <div class="row" ng-controller="klienCtrl">
+      <!--div class="col-md-12"-->
+        <div class="col-md-4">
+         <div class="height-tile2 color-logo padding-gen">
+  			    <div>logo</div>
+            <div class="row">{{gedung.nama}}</div>
+            <div class="row">{{gedung.fungsi}}</div>
+            <div class="row">{{gedung.luas}}</div>
+            <div class="col-md-6"><h3>Batas Daya:</h3></div>
+            <div class="col-md-6"><h1>{{gedung.daya}}</h1></div>
+         </div>
         </div>
-      </div><!-- /.col-lg-12 -->
-  </div><!-- /.row -->
+
+        <div class="col-md-8">
+            <div class="col-md-6 center-align green-back height-tile2">
+              <p class="left-align">semua</p>
+              <h1>HEMAT</h1>
+              <p><img src="img/smiley.png"></p>
+              <p>konsumsi listrik dibawah nilai IKE</p>
+            </div>
+          
+            <div class="col-md-6 white-back height-tile2">
+              <p>Tagihan Sejauh ini:</p>
+              <h1 class="right-align green-font">Rp. 513.200</h1>
+              <p>Perkiraan Tagihan Bulan ini:</p>
+              <h1 class="right-align green-font">Rp. 531.200</h1>
+              <p>Di bawah Ike:</p>
+              <h1 class="right-align green-font">Rp. 135.200</h1>
+            </div>
+          
+        </div>
+      <!--/div-->
+      </div>
+      <div class="clearfix"></div>
+    <!--ooooooo status keseluruhan  ooooooooo-->
+
+    <!--ooooooo status lantai satu ooooooooo-->
+      <div class="row margintop10 ">
+        <div class="col-md-12">
+          <div class="col-md-4 white-back height-tile3 padding-gen">
+                <h1>lantai 1</h1>
+                <p>Tagihan Sejauh ini:</p>
+                <h4 class="right-align ">Rp. 513.200</h4>
+          </div>
+
+          <div class="col-md-4 white-back height-tile3 padding-gen">
+            <p>Perkiraan Tagihan Bulan ini:</p>
+            <h4 class="right-align">Rp. 513.200</h4>
+            <p>Anda Telah Menghemat:</p>
+            <h4 class="right-align">Rp. 513.200</h4>
+          </div>
+
+          <div class="col-md-4 green-back padding-gen height-tile3 ">
+            <div class="col-md-6 center-align"><h1>HEMAT</h1><h2>konsumsi listrik dibawah nilai IKE</h2></div>
+              <div class="col-md-6">
+                <img src="img/smiley.png">
+              </div>
+          </div>
+
+        </div>
+      </div>
+
+    <div class="clearfix"></div>
+
+    <!--ooooooo status lantai satu ooooooooo-->
+
+ 
   </section>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery-2.1.1.min.js"></script>
@@ -242,10 +95,11 @@
     <script src="js/angular.min.js"></script>
     <script src="js/angular-sanitize.js"></script>
     <script>
-      var adminApp = angular.module('adminApp', ["ngSanitize"]);
+      var generalApp = angular.module('generalApp', ["ngSanitize"]);
       //klien control
-      adminApp.controller('klienCtrl', ['$scope','$http', function ($scope,$http) {
+      generalApp.controller('klienCtrl', ['$scope','$http', function ($scope,$http) {
         $scope.gedung = {};
+        //info
         $http({
           url: domainname+"gedung/id/"+getValue('id'), 
           method: "GET",
@@ -262,12 +116,9 @@
               $scope.gedung.daya = resp.daya;
             }
           }).
-          error(function(data, status, headers, config) {
-          // called asynchronously if an error occurs
-          // or server returns response with an error status.
-          console.log("error get gedung");
-        });
+          error(function(data, status, headers, config) {console.log("error get gedung");});
       }]);
+      //ike+tagihan
     </script>
   </body>
 </html>
