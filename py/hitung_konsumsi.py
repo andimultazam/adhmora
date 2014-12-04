@@ -46,6 +46,12 @@ def HitungTagihan(w,h1,h2,h3,p,a,b):
         return ((100+p)/100)*(w*h1 + w*h2 + AbodemenListrik(a,b))
     else:
         return ((100+p)/100)*(w*h1 + w*h2 + w*h3 + AbodemenListrik(a,b))
+        
+def HitungIKE(x,y):
+    """Indeks standar diisi manual oleh admin"""
+    """x = Energi (KWh); y = luas lantai (m^2)"""
+
+    return x / y
 
 con = mdb.connect('localhost', 'babeh', 'aing', 'adhmora');
 

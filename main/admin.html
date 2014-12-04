@@ -95,9 +95,15 @@
                   </div>
                 </div>
               </div>
-
             </fieldset>
           </form>
+          <div ng-controller="lantaiCtrl">
+            <form ng-upload="uploadLantai(content)" action="{{lantaiurl}}" upload-options-convert-hidden="true">
+              <div>
+                
+              </div>
+            </form>
+          </div>
         </div>
       </div><!-- /.col-lg-12 -->
   </div><!-- /.row -->
@@ -111,6 +117,7 @@
     <script src="js/ng-upload.js"></script>
     <script src="js/angular-sanitize.js"></script>
     <script>
+      var lantai = [];
       var adminApp = angular.module('adminApp', ["ngSanitize",'ngUpload']);
       //klien controller
       adminApp.controller('klienCtrl', ['$scope','$http', function ($scope,$http) {
@@ -165,7 +172,53 @@
               $scope.gedung.success = false;
               $scope.gedung.fail = true;
             }
-            console.log('masuk3');
+          }
+        }
+      }]);
+      //lantai controller
+      adminApp.controller('lantaiCtrl', ['$scope','$http', function ($scope,$http) {
+        $scope.vlantai = {};
+        $scope.getfungsi = {};
+        $scope.lantaiurl = domainname+"lantai/simpan/id";
+        //fungsi get list fungsi lantai
+        $http({
+          url: domainname+"fungsi/lantai", 
+          method: "GET",
+          params: {}
+         }).
+          success(function(data, status, headers, config) {
+            var resp = data;
+            if (resp !== null){
+              $scope.getfungsi = resp;
+            }
+          }).
+          error(function(data, status, headers, config) {
+            console.log("error get fungsi gedung");
+        });
+        //fungsi get data isian
+        $http({
+          url: domainname+"lantai/all/"+getValue('id'), 
+          method: "GET",
+          params: {}
+         }).
+          success(function(data, status, headers, config) {
+            var resp = data;
+            if (resp !== null){
+              lantai = resp;
+            }
+          }).
+          error(function(data, status, headers, config) {
+            console.log("error get gedung");
+        });
+        //fungsi upload form
+        $scope.uploadLantai = function (content) {
+          if (content !== null || content !== ''){
+            $success = JSON.parse(content);
+            if ($success.succesd==1||$success.succesg==1){
+              
+            }else{
+              
+            }
           }
         }
       }]);

@@ -20,6 +20,7 @@ if(array_key_exists('HTTP_ACCESS_CONTROL_REQUEST_HEADERS', $_SERVER)) {
 $r = new Restler();
 $r->setSupportedFormats('JsonFormat', 'UploadFormat');
 $r->addAPIClass('Gedung');
+$r->addAPIClass('Lantai');
 $r->addAPIClass('Fungsi');
 $r->handle();
 
