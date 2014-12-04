@@ -1,0 +1,31 @@
+lantai[]
+	{
+		fungsi lantai
+		nama
+		luas
+		denah
+		ruang[]
+			{
+				nama
+				luas
+				sensor[]
+				{
+					jenissensor
+					nama
+					idsensor
+					port
+				}
+				utilitas[]
+				{
+					jenisutilitas
+					nama
+					idutilitas
+					port
+					daya
+					sensor1
+					sensor2
+				}
+			}
+	}
+
+ada data view dan data simpan

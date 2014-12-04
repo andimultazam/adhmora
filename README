@@ -1,3 +1,15 @@
 /tools --> untuk skrip-skrip dummy
 /main --> tampilan frontend
+/py --> program daemon buat ngolah data
 /api --> ini backend retreieve data buat ke-dari frontend
+
+Panduan:
+	1. Pastikan MySQL berfungsi dan buatlah database bernama adhmora, lalu import adhmora.sql
+	2. Buat akun mysql 'babeh' dengan password 'aing' untuk akses dbase adhmora
+
+catatan :
+
+fungsi (1=gedung, 2=ruang)
+utilitas (tipe 1=sensor,2=aktuator,3=kombinasi
+			jenis 1=powermeter,2=okupansi,3=suhu,4=kelembaban,5=luxmeter,6=lampu,7=ac,8=lain2)
+
