@@ -97,17 +97,69 @@
               </div>
             </fieldset>
           </form>
-          <div ng-controller="lantaiCtrl">
-            <form ng-upload="uploadLantai(content)" action="{{lantaiurl}}" upload-options-convert-hidden="true">
-              <div>
-                
-              </div>
-            </form>
+        </div>
+        <div ng-controller="lantaiCtrl">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <ul>
+                <li ng-repeat="selantai in lantais" ng-click="klikLantai($event,$index)"><a>Lantai {{$index+1}}</a></li>
+              </ul>
+            </div>
           </div>
+          <form class="form-horizontal" role="form" name="lantaiForm" ng-upload="uploadLantai(content)" action="{{lantaiurl}}" upload-options-convert-hidden="true">
+            <div>
+              <input type="hidden" name="idlantai" ng-model="vlantai.idlantai" />
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="fungsi-bangunan">Fungsi Lantai</label>
+                <div class="col-sm-4 col-sm-offset-3">
+                  <select ng-model="vlantai.fungsi" ng-options="fungsi.idfungsi as fungsi.nama for fungsi in getfungsi" name="fungsilantai"></select>
+                  <input type="hidden" name="fungsilantai_val" ng-model="vlantai.fungsi" />
+                </div>
+              </div>
+
+               <div class="form-group">
+                <label class="col-sm-2 control-label" for="textinput">Nama</label>
+                <div class="col-sm-4 col-sm-offset-3">
+                  <input type="text" class="form-control" ng-model="vlantai.nama" name="nama">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="textinput">Luas</label>
+                <div class="col-sm-4 col-sm-offset-3">
+                  <input type="text" class="form-control" ng-model="vlantai.luas" name="luas">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="textinput">Denah</label>
+                <div class="col-sm-4 col-sm-offset-3">
+                  <img ng-src="{{vlantai.denah}}" ng-show="vlantai.denah" />
+                  <input type="file" name="denah" accept="image/*" ng-model="vlantai.denah" />
+                </div>
+              </div>
+              <h1>Ruang:{{vlantai.ruang.length}}</h1>
+              <div ng-repeat="ruang in vlantai.ruang">
+                <input type="hidden" name="idruang-{{ruang.idruang}}" ng-model="ruang.idruang" />
+                <h2>ruang = {{ruang.nama}}, daya = {{ruang.daya}}</h2>
+                <h2>Utilitas:{{ruang.utilitas.length}}</h2>
+                <div ng-repeat="utilitas in ruang.utilitas">
+                  <input type="hidden" name="idaktuator-{{utilitas.idutilitas_pasang}}" ng-model="utilitas.idutilitas_pasang" />
+                  <h3>tipeutil={{utilitas.util_tipe}}, utilitas={{utilitas.util_nama}}, nama={{utilitas.nama}}, id={{utilitas.idpasang}}, daya={{utilitas.daya}}, idsensor={{utilitas.sensor1}}&amp;{{utilitas.sensor2}}</h3>
+                </div>
+                <h2>Sensor:{{ruang.sensor.length}}</h2>
+                <div ng-repeat="sensor in ruang.sensor">
+                  <input type="hidden" name="idsensor-{{sensor.idutilitas_pasang}}" ng-model="sensor.idutilitas_pasang" />
+                  <h3>tipesensor={{sensor.util_tipe}}, sensor={{sensor.util_nama}}, nama={{sensor.nama}}, id={{sensor.idpasang}}</h3>
+                </div>
+              </div>
+              <!--end of field-->
+            </div>
+          </form>
         </div>
       </div><!-- /.col-lg-12 -->
-  </div><!-- /.row -->
-  </section>
+    </div><!-- /.row -->
+    </section>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery-2.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -117,7 +169,7 @@
     <script src="js/ng-upload.js"></script>
     <script src="js/angular-sanitize.js"></script>
     <script>
-      var lantai = [];
+      //var lantai = [];
       var adminApp = angular.module('adminApp', ["ngSanitize",'ngUpload']);
       //klien controller
       adminApp.controller('klienCtrl', ['$scope','$http', function ($scope,$http) {
@@ -177,6 +229,8 @@
       }]);
       //lantai controller
       adminApp.controller('lantaiCtrl', ['$scope','$http', function ($scope,$http) {
+        var index = 0;
+        $scope.lantais = [];
         $scope.vlantai = {};
         $scope.getfungsi = {};
         $scope.lantaiurl = domainname+"lantai/simpan/id";
@@ -204,12 +258,19 @@
           success(function(data, status, headers, config) {
             var resp = data;
             if (resp !== null){
-              lantai = resp;
+              $scope.lantais = resp;
+              $scope.vlantai = $scope.lantais[index];
+              //console.log($scope.lantais[index].ruang);
             }
           }).
           error(function(data, status, headers, config) {
             console.log("error get gedung");
         });
+        //fungsi klik lantai
+        $scope.klikLantai = function($event, idx) {
+            index = idx;
+            $scope.vlantai = $scope.lantais[index];
+        }
         //fungsi upload form
         $scope.uploadLantai = function (content) {
           if (content !== null || content !== ''){

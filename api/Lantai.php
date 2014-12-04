@@ -25,7 +25,7 @@ class Lantai {
             $lantai['ruang'] = array();
             foreach ($dataruang as $keyruang => $valueruang) {
                 $ruang = array();
-                $sql = "select * from utilitas_pasang where idruang=".$valueruang['idruang'];
+                $sql = "select u_p.*,u.nama as util_nama,u.daya from utilitas_pasang u_p inner join utilitas u on u_p.util_id=u.idutilitas where idruang=".$valueruang['idruang'];
                 $datautilitas = $db->pdoQuery($sql)->results();
                 $ruang = $dataruang[$keyruang];
                 $ruang['sensor'] = array();
