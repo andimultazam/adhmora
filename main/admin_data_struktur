@@ -1,31 +1,121 @@
-lantai[]
-	{
-		fungsi lantai
-		nama
-		luas
-		denah
-		ruang[]
-			{
-				nama
-				luas
-				sensor[]
-				{
-					jenissensor
-					nama
-					idsensor
-					port
-				}
-				utilitas[]
-				{
-					jenisutilitas
-					nama
-					idutilitas
-					port
-					daya
-					sensor1
-					sensor2
-				}
-			}
-	}
-
-ada data view dan data simpan
+[
+  {
+    "idlantai": "2",
+    "idgedung": "2",
+    "nama": "sanggar",
+    "denah": "http://localhost/adhmora/main/img/denah/idebeda-sign2.png",
+    "luas": "120",
+    "fungsi": "4",
+    "ruang": [
+      {
+        "idruang": "2",
+        "idlantai": "2",
+        "nama": "ngoding",
+        "luas": "40",
+        "daya": "120",
+        "sensor": [
+          {
+            "idutilitas_pasang": "1",
+            "idruang": "2",
+            "idlantai": "2",
+            "idgedung": "2",
+            "nama": "sense_power",
+            "idpasang": "sensor1",
+            "isON": "1",
+            "set_point": null,
+            "util_id": "2",
+            "util_tipe": "1",
+            "posx": "20",
+            "posy": "20",
+            "last_set": "2014-11-20 14:58:16",
+            "last_compute": "2014-11-20 18:57:16",
+            "port": null,
+            "sensor1": null,
+            "sensor2": null,
+            "util_nama": "sense_power",
+            "daya": null
+          }
+        ],
+        "utilitas": [
+          
+        ]
+      }
+    ]
+  },
+  {
+    "idlantai": "3",
+    "idgedung": "2",
+    "nama": "tempat_tidur",
+    "denah": "http://localhost/adhmora/main/img/denah/pix.png",
+    "luas": "110",
+    "fungsi": "5",
+    "ruang": [
+      {
+        "idruang": "3",
+        "idlantai": "3",
+        "nama": "ngoding",
+        "luas": "40",
+        "daya": "120",
+        "sensor": [
+          {
+            "idutilitas_pasang": "2",
+            "idruang": "3",
+            "idlantai": "3",
+            "idgedung": "2",
+            "nama": "sense_power",
+            "idpasang": "sensor2",
+            "isON": "1",
+            "set_point": null,
+            "util_id": "2",
+            "util_tipe": "1",
+            "posx": "20",
+            "posy": "20",
+            "last_set": null,
+            "last_compute": null,
+            "port": null,
+            "sensor1": null,
+            "sensor2": null,
+            "util_nama": "sense_power",
+            "daya": null
+          }
+        ],
+        "utilitas": [
+          {
+            "idutilitas_pasang": "3",
+            "idruang": "3",
+            "idlantai": "3",
+            "idgedung": "2",
+            "nama": "lampu",
+            "idpasang": "lampu1",
+            "isON": "1",
+            "set_point": null,
+            "util_id": "3",
+            "util_tipe": "6",
+            "posx": "20",
+            "posy": "40",
+            "last_set": "2014-12-04 17:20:47",
+            "last_compute": "2014-12-04 17:20:47",
+            "port": "2020",
+            "sensor1": "2",
+            "sensor2": null,
+            "util_nama": "lampu",
+            "daya": "10"
+          }
+        ]
+      },
+      {
+        "idruang": "4",
+        "idlantai": "3",
+        "nama": "sare",
+        "luas": "20",
+        "daya": "90",
+        "sensor": [
+          
+        ],
+        "utilitas": [
+          
+        ]
+      }
+    ]
+  }
+]
